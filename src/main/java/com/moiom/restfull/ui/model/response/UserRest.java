@@ -1,18 +1,26 @@
-package com.moiom.restfull.ui.model.request;
+package com.moiom.restfull.ui.model.response;
 
 /**
  * 
  * @author MoioM
  * 
  * POJO class (Plain Old Java Object) that is used when
- * a request body (JSON/xml file) maps into an object.
+ * and an object is mapped to JSON/xml to create response.
+ * This class does not contain any sensitive information.
  */
-public class UserDetailsRequestModel {
+
+public class UserRest {
 	
+	private String userId; // randomly generated User Id (not auto-incremented). It protects from finding auto-generated user id in the database.
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String password;
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -31,16 +39,6 @@ public class UserDetailsRequestModel {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	@Override
-	public String toString() {
-		return "UserDetailsRequestModel [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + "]";
-	}
 
+	
 }
