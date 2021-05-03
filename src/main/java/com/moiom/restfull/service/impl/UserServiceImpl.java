@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.moiom.restfull.UserRepository;
 import com.moiom.restfull.io.entity.UserEntity;
 import com.moiom.restfull.service.UserService;
+import com.moiom.restfull.shared.Utils;
 import com.moiom.restfull.shared.dto.UserDto;
 
 @Service
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService {
 		UserEntity userEntity = new UserEntity();
 		BeanUtils.copyProperties(user, userEntity);
 		userEntity.setEncryptedPassword("testEncryptedPassword");
-		userEntity.setUserId("testUserId");
+		userEntity.setUserId(Utils.generateUserId(20));
 		
 		UserEntity storedUserDetails = userRepository.save(userEntity);
 		
