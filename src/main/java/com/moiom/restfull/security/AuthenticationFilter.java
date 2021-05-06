@@ -54,7 +54,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 											FilterChain chain,
 											Authentication auth) throws IOException, ServletException {
 		String userName = ((User) auth.getPrincipal()).getUsername();
-		//String tokenSecret = new SecurityConstants().getTokenSecret();
 		String token = Jwts.builder() // JSON Web Token (JWT)
 				.setSubject(userName)
 				.setExpiration(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))

@@ -26,7 +26,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL) // public
 		.permitAll()
 		.anyRequest()  // require authentications
-		.authenticated();
+		.authenticated()
+		.and()
+		.addFilter(new AuthenticationFilter(authenticationManager()));
 	}
 	
 	@Override
