@@ -23,7 +23,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable() // disable Cross-Site Request Forgery CSRF attacks. csrf is enabled by default
 		.authorizeRequests() // request require authorisation
-		.antMatchers(HttpMethod.POST, "/users") // public
+		.antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL) // public
 		.permitAll()
 		.anyRequest()  // require authentications
 		.authenticated();
